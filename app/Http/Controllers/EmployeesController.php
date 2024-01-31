@@ -78,7 +78,7 @@ class EmployeesController extends Controller
             'first_name' => 'required|regex:/^[a-zA-Z\s]+$/',
             'middle_name' => 'required|regex:/^[a-zA-Z\s]+$/',
             'last_name' => 'regex:/^[a-zA-Z\s]+$/',
-            'Email' => 'required|email|ends_with:gmail.com,yahoo.com.|unique:employees,Email',
+            'Email' => 'required|email',
             'position' =>'required',
             'EmployeeID' =>'required',
             'Contact'=>'required|min:11',

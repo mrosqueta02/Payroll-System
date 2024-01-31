@@ -394,19 +394,35 @@ public function GetRatePerDay($employeeID){
 }
 public function GetTax($salary){
         $tax = 0;
+        $excess = 0;
+
+
     if ($salary <= 4808){
         $tax = 0;
     
     }
-    else if ($salary > 4808 && $salary <= 7691){
-        $tax = $salary * 0.15;
-      
-    }else if ($salary > 7691 && $salary <= 15384){
-        $tax = ($salary * 0.20)+ 432.60;
+    else if ($salary > 7691 && $salary <= 15384){
 
+
+        $excess = $salary - 7691;
+
+        $tax = ($excess * 0.20)+ 432.60;
+        return $tax;
         
-    }
-    return $tax;
+    }else if ($salary > 15385 && $salary <= 38461){
+        $excess = $salary - 15385;
+        $tax = ($excess * 0.25) + 1971.20;
+        return $tax;
+
+    }else if ($salary > 38462 && $salary <= 153845){
+        $excess = $salary - 38462;
+        $tax = ($excess * 0.30) + 7740.45;
+        return $tax;
+
+    }else if ($salary > 153846 && $salary <= 500000)
+        $excess = $salary - 153846;`
+        $tax = ($excess * 0.35) + 42355.65;
+        return $tax;
 }
 protected function getTimekeepingData($employeeID, $startDate, $endDate)
 {
