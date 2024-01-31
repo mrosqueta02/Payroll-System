@@ -37,7 +37,7 @@ Route::get('/UserManagement', function(){
 
 
 Route::get('/login', function(){
-    return view ('Login');
+    return view ('login');
 });
 
 Route::get('/reports', function(){
